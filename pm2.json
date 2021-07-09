@@ -1,0 +1,9 @@
+{
+    "apps": [{
+        "name": "edge-reports-server",
+        "script": "lib/indexApi.js",
+        "instances": "1",
+        "error_file": "logs/server/error.log",
+        "out_file": "logs/server/log.log"
+    }]
+}

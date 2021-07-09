@@ -38,32 +38,27 @@
 
 To launch the reports server, just type `yarn start`.
 
-You can also build the server code by running `yarn build`, which puts its output in the `lib` folder. You can then use `forever-service` or similar tools to install the software on your server machine.
+You can also build the server code by running `yarn build`, which puts its output in the `lib` folder. You can then use `PM2` or similar tools to install the software on your server machine.
 
 ```sh
 
-# install forever-service:
-sudo npm i -global forever
-sudo npm i -global forever-service
+#### Launch server using `PM2`
 
-# install:
-cd edge-reports-server
-sudo forever-service install reportsQuery --script lib/indexEngine.js --start
-sudo forever-service install reportsRates --script lib/indexRatesEngine.js --start
-sudo forever-service install reportsApi --script lib/indexApi.js --start
+    pm2 start pm2.json
 
-# manage:
-sudo service reportsQuery restart
-sudo service reportsQuery stop
-sudo service reportsRates restart
-sudo service reportsRates stop
-sudo service reportsApi restart
-sudo service reportsApi stop
+#### `PM2` Dashboard
 
-# uninstall:
-sudo forever-service delete reportsQuery
-sudo forever-service delete reportsRates
-sudo forever-service delete reportsApi
+    pm2 monit
+
+#### Restart, stop, delete service
+
+    Or run tasks manually,
+
+    pm2 stop pm2.json
+    
+    pm2 restart pm2.json
+
+    pm2 delete pm2.json
 ```
 
 ## Demo app

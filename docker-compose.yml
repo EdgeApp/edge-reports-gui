@@ -1,0 +1,7 @@
+services:
+  infoserver:
+    image: edge-reports-server:latest
+    network_mode: host
+    volumes:
+      - ./logs:/usr/server/logs
+    container_name: edge-reports-server
